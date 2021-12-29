@@ -28,6 +28,9 @@ namespace RejestracjaDoLekarzaProjekt
         public MainWindow()
         {
             InitializeComponent();
+
+            var db = new DataContext();
+
             ss.SetOutputToDefaultAudioDevice();
             CultureInfo ci = new CultureInfo("pl-PL");
             sre = new SpeechRecognitionEngine(ci);
