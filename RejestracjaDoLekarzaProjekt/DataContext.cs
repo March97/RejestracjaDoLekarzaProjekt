@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace RejestracjaDoLekarzaProjekt
 {
@@ -20,9 +21,8 @@ namespace RejestracjaDoLekarzaProjekt
 
         public DataContext()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = ".\\clinic.db";
+            var projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            DbPath = projectDirectory + "\\clinic.db";
         }
 
         // The following configures EF to create a Sqlite database file in the
@@ -33,6 +33,14 @@ namespace RejestracjaDoLekarzaProjekt
 
     public class Person
     {
+        public Person(string name, string surname, string pesel, string gender)
+        {
+            Name = name;
+            Surname = surname;
+            Pesel = pesel;
+            Gender = gender;
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

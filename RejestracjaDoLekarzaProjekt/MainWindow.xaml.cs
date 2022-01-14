@@ -25,6 +25,7 @@ namespace RejestracjaDoLekarzaProjekt
     {
         static SpeechSynthesizer ss = new SpeechSynthesizer();
         static SpeechRecognitionEngine sre;
+        static DataRepository repo = new DataRepository();
         public MainWindow()
         {
             InitializeComponent();
@@ -43,6 +44,8 @@ namespace RejestracjaDoLekarzaProjekt
             sre.RecognizeAsync(RecognizeMode.Multiple);
             ss.SpeakAsync("Witaj w naszej przychodni");
             ss.SpeakAsync("Czy jesteś naszym pacjentem? Odpowiedz tak lub nie");
+
+            repo.AddPatient("Anna", "Budka", "76090389521", "K");
         }
 
         private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
