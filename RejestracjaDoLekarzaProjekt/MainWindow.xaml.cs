@@ -31,6 +31,10 @@ namespace RejestracjaDoLekarzaProjekt
         string pesel = "";
         bool peselSaid = false;
         bool newPeselSaid = false;
+        string day = "";
+        string month = "";
+        string hour = "";
+        string minutes = "";
         Person person = null;
         Specjalization specjalization = null;
         List<Doctor> doctors = null;
@@ -270,8 +274,43 @@ namespace RejestracjaDoLekarzaProjekt
                                         + freeVisitsOfDoctor.First().Date.Hour + ":" + freeVisitsOfDoctor.First().Date.Minute + " zdrówka wariacie!");
                             } else
                             {
-                                try { decision = e.Result.Semantics["decision"].Value.ToString(); }
-                                catch (KeyNotFoundException) { }
+                                if (day == "")
+                                {
+                                    try { day = e.Result.Semantics["day"].Value.ToString(); }
+                                    catch (KeyNotFoundException) { }
+                                }
+                                if (month == "")
+                                {
+                                    try { month = e.Result.Semantics["month"].Value.ToString(); }
+                                    catch (KeyNotFoundException) { }
+                                }
+                                if (hour == "")
+                                {
+                                    try { hour = e.Result.Semantics["hour"].Value.ToString(); }
+                                    catch (KeyNotFoundException) { }
+                                }
+
+                                if (day == "")
+                                {
+                                    ss.SpeakAsync("Powtórz dzień");
+                                }
+                                if (month == "")
+                                {
+                                    ss.SpeakAsync("Powtórz miesiąc");
+                                }
+                                if (hour == "")
+                                {
+                                    ss.SpeakAsync("Powtórz godzinę");
+                                }
+
+                                if (day != "" && month != "" && hour != "")
+                                {
+                                    var date = day + "." + month + ".2022 " + hour;
+                                    var visit = freeVisitsOfDoctor.Where(x => x.Date.ToString() == date).First();
+                                    repo.BookVisit(visit.Id, person.Patients.First().Id);
+                                    ss.SpeakAsync("Zapisałam wizytę na " + visit.Date.Day + " " + visit.Date.Month + " "
+                                            + visit.Date.Hour + ":" + visit.Date.Minute + " zdrówka wariacie!");
+                                }
                             }
 
                         }

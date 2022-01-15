@@ -25,6 +25,14 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <ruleref uri="#day"/>
       <tag>out.day=rules.latest();</tag>
     </item>
+    <item repeat="0-1">
+      <ruleref uri="#month"/>
+      <tag>out.month=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#hour"/>
+      <tag>out.hour=rules.latest();</tag>
+    </item>
   </rule>
 
   <rule id="number">
@@ -239,5 +247,67 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <item> Sandomierskiego <tag>out="Sandomierski"</tag></item>
     </one-of>
   </rule>
-
+  
+  <rule id="hour">
+    <one-of>
+      <item> ósma <tag>out="08:00:00"</tag></item>
+      <item> ósma trzydzieści <tag>out="08:30:00"</tag></item>
+      <item> w pół do dziewiątej <tag>out="08:30:00"</tag></item>
+      <item> dziewiąta <tag>out="09:00:00"</tag></item>
+      <item> dziewiąta trzydzieści <tag>out="09:30:00"</tag></item>
+      <item> w pół do dziesiątej <tag>out="09:30:00"</tag></item>
+      <item> dziesiąta <tag>out="10:00:00"</tag></item>
+      <item> dziesiąta trzydzieści <tag>out="10:30:00"</tag></item>
+      <item> w pół do jedenastej <tag>out="10:30:00"</tag></item>
+      <item> jedenasta <tag>out="11:00:00"</tag></item>
+      <item> jedenasta trzydzieści<tag>out="11:30:00"</tag></item>
+      <item> w pół do dwunastej <tag>out="11:30:00"</tag></item>
+      <item> dwunasta <tag>out="12:00:00"</tag></item>
+      <item> dwunasta trzydzieści <tag>out="12:30:00"</tag></item>
+      <item> w pół do trzynastej <tag>out="12:30:00"</tag></item>
+      <item> w pół do pierwszej <tag>out="12:30:00"</tag></item>
+      <item> pierwsza <tag>out="13:00:00"</tag></item>
+      <item> trzynasta <tag>out="13:00:00"</tag></item>
+      <item> pierwsza trzydzieści <tag>out="13:30:00"</tag></item>
+      <item> trzynasta trzydzieści <tag>out="13:30:00"</tag></item>
+      <item> w pół do czternastej <tag>out="13:30:00"</tag></item>
+      <item> w pół do drugiej <tag>out="13:30:00"</tag></item>
+      <item> druga <tag>out="14:00:00"</tag></item>
+      <item> czternasta <tag>out="14:00:00"</tag></item>
+      <item> druga trzydzieści <tag>out="14:30:00"</tag></item>
+      <item> czternasta trzydzieści <tag>out="14:30:00"</tag></item>
+      <item> w pół do piętnastej <tag>out="14:30:00"</tag></item>
+      <item> w pół do trzeciej <tag>out="14:30:00"</tag></item>
+      <item> piętnasta <tag>out="15:00:00"</tag></item>
+      <item> trzecia <tag>out="15:00:00"</tag></item>
+      <item> piętnasta trzydzieści <tag>out="15:30:00"</tag></item>
+      <item> trzecia trzydzieści <tag>out="15:30:00"</tag></item>
+      <item> w pół do szesnastej <tag>out="15:30:00"</tag></item>
+      <item> w pół do czwartej <tag>out="15:30:00"</tag></item>
+      <item> szesnasta <tag>out="16:00:00"</tag></item>
+      <item> czwarta <tag>out="16:00:00"</tag></item>
+      <item> szesnasta trzydzieści <tag>out="16:30:00"</tag></item>
+      <item> czwarta trzydzieści <tag>out="16:30:00"</tag></item>
+      <item> w pół do siedemnastej <tag>out="16:30:00"</tag></item>
+      <item> w pół do piątej <tag>out="16:30:00"</tag></item>
+      <item> piąta <tag>out="17:00:00"</tag></item>
+      <item> siedemnasta <tag>out="17:00:00"</tag></item>
+      <item> piąta trzydzieści <tag>out="17:30:00"</tag></item>
+      <item> siedemnasta trzydzieści <tag>out="17:30:00"</tag></item>
+      <item> w pół do osiemnastej <tag>out="17:30:00"</tag></item>
+      <item> w pół do szóstej <tag>out="17:30:00"</tag></item>
+      <item> szósta <tag>out="18:00:00"</tag></item>
+      <item> osiemnasta <tag>out="18:00:00"</tag></item>
+      <item> szósta trzydzieści <tag>out="18:30:00"</tag></item>
+      <item> osiemnasta trzydzieści <tag>out="18:30:00"</tag></item>
+      <item> w pół do dziewiętnastej <tag>out="18:30:00"</tag></item>
+      <item> w pół do siódmej <tag>out="18:30:00"</tag></item>
+      <item> siódma <tag>out="19:00:00"</tag></item>
+      <item> dziewiętnasta <tag>out="19:00:00"</tag></item>
+      <item> siódma trzydzieści <tag>out="19:30:00"</tag></item>
+      <item> dziewiętnasta trzydzieści <tag>out="19:30:00"</tag></item>
+      <item> w pół do ósmej <tag>out="19:30:00"</tag></item>
+      <item> w pół do dwudziestej <tag>out="19:30:00"</tag></item>
+    </one-of>
+  </rule>
 </grammar>
