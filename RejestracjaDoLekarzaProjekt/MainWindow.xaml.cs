@@ -26,6 +26,10 @@ namespace RejestracjaDoLekarzaProjekt
         static SpeechSynthesizer ss = new SpeechSynthesizer();
         static SpeechRecognitionEngine sre;
         static DataRepository repo = new DataRepository();
+        string isPatient = "";
+        string pesel = "";
+        bool peselSaid = false;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -44,39 +48,47 @@ namespace RejestracjaDoLekarzaProjekt
             sre.RecognizeAsync(RecognizeMode.Multiple);
             ss.SpeakAsync("Witaj w naszej przychodni");
             ss.SpeakAsync("Czy jesteś naszym pacjentem? Odpowiedz tak lub nie");
-
-            //repo.AddPatient("Anna", "Budka", "76090389521", "K");
-            var patient = repo.GetPatient("76090389521");
-            lbl1.Content = patient.Name + " " + patient.Surname + " " + patient.Patients.FirstOrDefault().Id;
-            var doctors = repo.GetFreeVisitsForDoctor(1);
-            lbl1.Content = doctors.Count;
-            repo.BookVisit(1, 1);
         }
 
         private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            lbl1.Content = "";
             float confidence = e.Result.Confidence;
-            if (confidence <= 0.3)
+            lbl2.Content = e.Result.Text + "        Pewność: " + confidence;
+            if (confidence <= 0.6)
             {
                 ss.SpeakAsync("Proszę powtórzyć");
             }
             else
             {
-                int number = Convert.ToInt32(e.Result.Semantics["number"].Value);
-                string decision = e.Result.Semantics["decision"].Value.ToString();
-                if (decision == "tak")
+                if (isPatient == "")
                 {
-                    ss.SpeakAsync("Podaj numer pe-sel");
+                    try { isPatient = e.Result.Semantics["decision"].Value.ToString(); }
+                    catch (KeyNotFoundException) { }
                 }
-                else
-                if (decision == "nie")
+
+                if (isPatient == "tak" && pesel == "" && !peselSaid)
+                {
+                    ss.SpeakAsync("Podaj numer pe-sel, podawaj kolejne cyfry pojedynczo");
+                    peselSaid = true;
+                } else
+                if (isPatient == "tak" && pesel.Length != 11)
+                {
+                    try { pesel += e.Result.Semantics["number"].Value.ToString(); }
+                    catch (KeyNotFoundException) { }
+                    if (pesel.Length == 11)
+                    {
+                        ss.SpeakAsync("Twój pe-sel to: " + pesel[0] + ", " + pesel[1] + ", " + pesel[2] + ", " + pesel[3]
+                            + ", " + pesel[4] + ", " + pesel[5] + ", " + pesel[6] + ", " + pesel[7] + ", " + pesel[8]
+                            + ", " + pesel[9] + ", " + pesel[10]);
+                    }
+                }
+
+                if (isPatient == "nie")
                 {
                     ss.SpeakAsync("Złóż deklaracje");
                 }
-                else
-                {
-                    ss.SpeakAsync("Proszę powtórzyć");
-                }
+
             }
         }
     }
