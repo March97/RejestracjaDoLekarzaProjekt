@@ -45,7 +45,12 @@ namespace RejestracjaDoLekarzaProjekt
             ss.SpeakAsync("Witaj w naszej przychodni");
             ss.SpeakAsync("Czy jesteś naszym pacjentem? Odpowiedz tak lub nie");
 
-            repo.AddPatient("Anna", "Budka", "76090389521", "K");
+            //repo.AddPatient("Anna", "Budka", "76090389521", "K");
+            var patient = repo.GetPatient("76090389521");
+            lbl1.Content = patient.Name + " " + patient.Surname + " " + patient.Patients.FirstOrDefault().Id;
+            var doctors = repo.GetFreeVisitsForDoctor(1);
+            lbl1.Content = doctors.Count;
+            repo.BookVisit(1, 1);
         }
 
         private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)

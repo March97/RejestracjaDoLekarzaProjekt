@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/RejestracjaDoLekarzaProjekt/clinic.db-shm
+/RejestracjaDoLekarzaProjekt/clinic.db-wal
