@@ -9,6 +9,22 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <ruleref uri="#number"/>
       <tag>out.number=rules.latest();</tag>
     </item>
+    <item repeat="0-1">
+      <ruleref uri="#specjalization"/>
+      <tag>out.specjalization=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#doctorName"/>
+      <tag>out.doctorName=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#doctorSurname"/>
+      <tag>out.doctorSurname=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#day"/>
+      <tag>out.day=rules.latest();</tag>
+    </item>
   </rule>
 
   <rule id="number">
@@ -129,32 +145,98 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
     </one-of>
   </rule>
   
-    <rule id="specjalization">
+  <rule id="specjalization">
     <one-of>
-      <item> dentysta <tag>out="dentysta"</tag></item>
-      <item> dentysty <tag>out="dentysta"</tag></item>
-      <item> internista <tag>out="internista"</tag></item>
-      <item> internisty <tag>out="internista"</tag></item>
-      <item> ginekolog <tag>out="ginekolog"</tag></item>
-      <item> ginekologa <tag>out="ginekolog"</tag></item>
-      <item> dermatolog <tag>out="dermatolog"</tag></item>
-      <item> dermatologa <tag>out="dermatolog"</tag></item>
-      <item> alergolog <tag>out="alergolog"</tag></item>
-      <item> alergologa <tag>out="alergolog"</tag></item>
-      <item> endokrynolog <tag>out="endokrynolog"</tag></item>
-      <item> endokrynologa <tag>out="endokrynolog"</tag></item>
-      <item> okulista <tag>out="okulista"</tag></item>
-      <item> okulisty <tag>out="okulista"</tag></item>
-      <item> laryngolog <tag>out="laryngolog"</tag></item>
-      <item> laryngologa <tag>out="laryngolog"</tag></item>
-      <item> ortopeda <tag>out="ortopeda"</tag></item>
-      <item> ortopedy <tag>out="ortopeda"</tag></item>
-      <item> chirurg <tag>out="chirurg"</tag></item>
-      <item> chirurga <tag>out="chirurg"</tag></item>
-      <item> pediatra <tag>out="pediatra"</tag></item>
-      <item> pediatry <tag>out="pediatra"</tag></item>
-      <item> psycholog <tag>out="psycholog"</tag></item>
-      <item> psychologa <tag>out="psycholog"</tag></item>
+      <item> dentysta <tag>out="Dentysta"</tag></item>
+      <item> dentysty <tag>out="Dentysta"</tag></item>
+      <item> internista <tag>out="Internista"</tag></item>
+      <item> internisty <tag>out="Internista"</tag></item>
+      <item> ginekolog <tag>out="Ginekolog"</tag></item>
+      <item> ginekologa <tag>out="Ginekolog"</tag></item>
+      <item> dermatolog <tag>out="Dermatolog"</tag></item>
+      <item> dermatologa <tag>out="Dermatolog"</tag></item>
+      <item> alergolog <tag>out="Alergolog"</tag></item>
+      <item> alergologa <tag>out="Alergolog"</tag></item>
+      <item> endokrynolog <tag>out="Endokrynolog"</tag></item>
+      <item> endokrynologa <tag>out="Endokrynolog"</tag></item>
+      <item> okulista <tag>out="Okulista"</tag></item>
+      <item> okulisty <tag>out="Okulista"</tag></item>
+      <item> laryngolog <tag>out="Laryngolog"</tag></item>
+      <item> laryngologa <tag>out="Laryngolog"</tag></item>
+      <item> ortopeda <tag>out="Ortopeda"</tag></item>
+      <item> ortopedy <tag>out="Ortopeda"</tag></item>
+      <item> chirurg <tag>out="Chirurg"</tag></item>
+      <item> chirurga <tag>out="Chirurg"</tag></item>
+      <item> pediatra <tag>out="Pediatra"</tag></item>
+      <item> pediatry <tag>out="Pediatra"</tag></item>
+      <item> psycholog <tag>out="Psycholog"</tag></item>
+      <item> psychologa <tag>out="Psycholog"</tag></item>
+    </one-of>
+  </rule>
+  
+  <rule id="doctorName">
+    <one-of>
+      <item> Dominik <tag>out="Dominik"</tag></item>
+      <item> Adam <tag>out="Adam"</tag></item>
+      <item> Piotr <tag>out="Piotr"</tag></item>
+      <item> Daniel <tag>out="Daniel"</tag></item>
+      <item> Anna <tag>out="Anna"</tag></item>
+      <item> Jan <tag>out="Jan"</tag></item>
+      <item> Adrianna <tag>out="Adrianna"</tag></item>
+      <item> Wanda <tag>out="Wanda"</tag></item>
+      <item> Kamil <tag>out="Kamil"</tag></item>
+      <item> Aleksandra <tag>out="Aleksandra"</tag></item>
+      <item> Patrycja <tag>out="Patrycja"</tag></item>
+      <item> Stanisław <tag>out="Stanisław"</tag></item>
+      <item> Konrad <tag>out="Konrad"</tag></item>
+      <item> Dominika <tag>out="Dominik"</tag></item>
+      <item> Adama <tag>out="Adam"</tag></item>
+      <item> Piotra <tag>out="Piotr"</tag></item>
+      <item> Daniela <tag>out="Daniel"</tag></item>
+      <item> Anny <tag>out="Anna"</tag></item>
+      <item> Jana <tag>out="Jan"</tag></item>
+      <item> Adrianny <tag>out="Adrianna"</tag></item>
+      <item> Wandy <tag>out="Wanda"</tag></item>
+      <item> Kamila <tag>out="Kamil"</tag></item>
+      <item> Aleksandry <tag>out="Aleksandra"</tag></item>
+      <item> Patrycji <tag>out="Patrycja"</tag></item>
+      <item> Stanisława <tag>out="Stanisław"</tag></item>
+      <item> Konrada <tag>out="Konrad"</tag></item>
+    </one-of>
+  </rule>
+  
+  <rule id="doctorSurname">
+    <one-of>
+      <item> Marchewka <tag>out="Marchewka"</tag></item>
+      <item> Parciak <tag>out="Parciak"</tag></item>
+      <item> Ciećwierz <tag>out="Ciećwierz"</tag></item>
+      <item> Buczko <tag>out="Buczko"</tag></item>
+      <item> Lewandowska <tag>out="Lewandowska"</tag></item>
+      <item> Kowalski <tag>out="Kowalski"</tag></item>
+      <item> Celeban <tag>out="Celeban"</tag></item>
+      <item> Kowalczyk <tag>out="Kowalczyk"</tag></item>
+      <item> Juras <tag>out="Juras"</tag></item>
+      <item> Bereda <tag>out="Bereda"</tag></item>
+      <item> Sarna <tag>out="Sarna"</tag></item>
+      <item> Garnek <tag>out="Garnek"</tag></item>
+      <item> Kocjan <tag>out="Kocjan"</tag></item>
+      <item> Krakowski <tag>out="Krakowski"</tag></item>
+      <item> Sandomierski <tag>out="Sandomierski"</tag></item>
+      <item> Marchewki <tag>out="Marchewka"</tag></item>
+      <item> Parciaka <tag>out="Parciak"</tag></item>
+      <item> Ciećwierza <tag>out="Ciećwierz"</tag></item>
+      <item> Buczki <tag>out="Buczko"</tag></item>
+      <item> Lewandowskiej <tag>out="Lewandowska"</tag></item>
+      <item> Kowalskiego <tag>out="Kowalski"</tag></item>
+      <item> Celebana <tag>out="Celeban"</tag></item>
+      <item> Kowalczyka <tag>out="Kowalczyk"</tag></item>
+      <item> Jurasa <tag>out="Juras"</tag></item>
+      <item> Beredy <tag>out="Bereda"</tag></item>
+      <item> Sarny <tag>out="Sarna"</tag></item>
+      <item> Garnka <tag>out="Garnek"</tag></item>
+      <item> Kocjana <tag>out="Kocjan"</tag></item>
+      <item> Krakowskiego <tag>out="Krakowski"</tag></item>
+      <item> Sandomierskiego <tag>out="Sandomierski"</tag></item>
     </one-of>
   </rule>
 

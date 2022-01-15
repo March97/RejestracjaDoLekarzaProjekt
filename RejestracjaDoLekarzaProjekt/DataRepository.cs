@@ -35,6 +35,26 @@ namespace RejestracjaDoLekarzaProjekt
                 .ToList();
         }
 
+        public Specjalization GetSpecjalization(string name)
+        {
+            return db.Specjalizations.Where(x => x.Name == name).FirstOrDefault();
+        }
+
+        public Person GetDoctorByName(string name, string surname)
+        {
+            if(name == "")
+                return db.Persons
+                    .Where(x => x.Surname == surname)
+                    .Include(x => x.Doctors)
+                    .FirstOrDefault();
+            else
+                return db.Persons
+                    .Where(x => x.Surname == surname)
+                    .Where(x => x.Name == name)
+                    .Include(x => x.Doctors)
+                    .FirstOrDefault();
+        }
+
         public List<Visit> GetFreeVisitsForDoctor(int doctorId)
         {
             return db.Visits
@@ -55,14 +75,6 @@ namespace RejestracjaDoLekarzaProjekt
             return db.Specjalizations
                 .Include(x => x.Doctors)
                 .ToList();
-        }
-
-        public void SetVisit(string name, string surname, string pesel, string gender)
-        {
-            var newPerson = new Person(name, surname, pesel, gender);
-            newPerson.Patients.Add(new Patient());
-            db.Add(newPerson);
-            db.SaveChanges();
         }
     }
 }
