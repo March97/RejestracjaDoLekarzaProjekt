@@ -41,6 +41,8 @@ namespace RejestracjaDoLekarzaProjekt
         Person doctor = null;
         List<Visit> freeVisitsOfDoctor = null;
 
+        List<Label> pesel_cells = new List<Label>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -58,7 +60,127 @@ namespace RejestracjaDoLekarzaProjekt
             sre.LoadGrammar(grammar);
             sre.RecognizeAsync(RecognizeMode.Multiple);
             ss.SpeakAsync("Witaj w naszej przychodni");
+
+            /*calendar.SelectedDates.Add(new DateTime(2022, 1, 5));
+            calendar.SelectedDates.Add(new DateTime(2022, 1, 6));
+            calendar.SelectedDates.Add(new DateTime(2022, 1, 7));
+            calendar.SelectedDates.Add(new DateTime(2022, 1, 8));
+
+            Console.WriteLine("=========================================");
+            Console.WriteLine(calendar.SelectedDates);
+            Console.WriteLine("=========================================");*/
+
+            pesel_cells.Add(pesel_cell_1);
+            pesel_cells.Add(pesel_cell_2);
+            pesel_cells.Add(pesel_cell_3);
+            pesel_cells.Add(pesel_cell_4);
+            pesel_cells.Add(pesel_cell_5);
+            pesel_cells.Add(pesel_cell_6);
+            pesel_cells.Add(pesel_cell_7);
+            pesel_cells.Add(pesel_cell_8);
+            pesel_cells.Add(pesel_cell_9);
+            pesel_cells.Add(pesel_cell_10);
+            pesel_cells.Add(pesel_cell_11);
+
             ss.SpeakAsync("Czy jesteś naszym pacjentem? Odpowiedz tak lub nie");
+            
+            existing_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+            new_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+
+            phase_1_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+        }
+
+        private void reset_pesel_labels()
+        {
+            for(int i=0; i<11; i++)
+            {
+                pesel_cells[i].Content = "";
+                pesel_cells[i].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+            }
+            pesel_cells[0].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+        }
+
+        private void complete_phase_1()
+        {
+            phase_1_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            phase_2_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+        }
+
+        private void complete_phase_2()
+        {
+            phase_2_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            phase_3_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+        }
+
+        private void mark_specialization(string specialization)
+        {
+            if(specialization == "Dentysta")
+            {
+                dentysta.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if(specialization == "Internista")
+            {
+                internista.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if(specialization == "Ginekolog")
+            {
+                ginekolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if(specialization == "Dermatolog")
+            {
+                dermatolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if(specialization == "Alergolog")
+            {
+                alergolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Endokrynolog")
+            {
+                endokrynolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Okulista")
+            {
+                okulista.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Laryngolog")
+            {
+                laryngolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Ortopeda")
+            {
+                ortopeda.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Chirurg")
+            {
+                chirurg.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Pediatra")
+            {
+                pediatra.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+            else if (specialization == "Psycholog")
+            {
+                psycholog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+            }
+        }
+
+        private void back_to_phase_2()
+        {
+                dentysta.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                internista.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                ginekolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                dermatolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                alergolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                endokrynolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                okulista.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                laryngolog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                ortopeda.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                chirurg.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                pediatra.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                psycholog.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+
+            phase_2_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+            phase_3_label.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
         }
 
         private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
@@ -74,7 +196,21 @@ namespace RejestracjaDoLekarzaProjekt
             {
                 if (isPatient == "")
                 {
-                    try { isPatient = e.Result.Semantics["decision"].Value.ToString(); }
+                    try { 
+                        isPatient = e.Result.Semantics["decision"].Value.ToString(); 
+                        if(isPatient == "tak")
+                        {
+                            existing_account.IsChecked = true;
+                            existing_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+                            new_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                        }
+                        else
+                        {
+                            new_account.IsChecked = true;
+                            existing_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                            new_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+                        }
+                    }
                     catch (KeyNotFoundException) { }
                 }
 
@@ -82,10 +218,20 @@ namespace RejestracjaDoLekarzaProjekt
                 {
                     ss.SpeakAsync("Podaj numer pe-sel, podawaj kolejne cyfry pojedynczo");
                     peselSaid = true;
+                    pesel_cells[0].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
                 } else
                 if (isPatient == "tak" && pesel.Length != 11)
                 {
-                    try { pesel += e.Result.Semantics["number"].Value.ToString(); }
+                    try { 
+                        pesel += e.Result.Semantics["number"].Value.ToString();
+                        pesel_cells[pesel.Length - 1].Content = pesel.Last();
+
+                        pesel_cells[pesel.Length - 1].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+                        if(pesel.Length < 11)
+                        {
+                            pesel_cells[pesel.Length].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+                        }
+                    }
                     catch (KeyNotFoundException) { }
                     if (pesel.Length == 11)
                     {
@@ -102,7 +248,10 @@ namespace RejestracjaDoLekarzaProjekt
                     {
                         person = repo.GetPatient(pesel);
                         if (person != null)
+                        {
                             ss.SpeakAsync("Witaj " + person.Name + " " + person.Surname + " Do jakiego lekarza chcesz się u-mówić?");
+                            this.complete_phase_1();
+                        }
                         else
                         {
                             ss.SpeakAsync("Brak pacjenta o takim numerze pe-sel w naszej bazie danych, musisz najpierw złożyc deklaracje, " +
@@ -110,6 +259,12 @@ namespace RejestracjaDoLekarzaProjekt
                             isPatient = "nie";
                             pesel = "";
                             newPeselSaid = false;
+
+                            existing_account.IsChecked = false;
+                            new_account.IsChecked = true;
+                            this.reset_pesel_labels();
+                            existing_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent");
+                            new_account_background.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
                         }
                     }
                     else
@@ -117,6 +272,7 @@ namespace RejestracjaDoLekarzaProjekt
                     {
                         pesel = "";
                         isPeselCorrect = "";
+                        this.reset_pesel_labels();
                         ss.SpeakAsync("Podaj ponownie swój pe-sel, podawaj kolejne cyfry pojedynczo");
                     }
 
@@ -125,12 +281,22 @@ namespace RejestracjaDoLekarzaProjekt
                 if (isPatient == "nie" && pesel == "" && !newPeselSaid)
                 {
                     ss.SpeakAsync("Złóż deklaracje podaj swój numer pe-sel, podawaj kolejne cyfry pojedynczo");
+                    pesel_cells[0].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
                     newPeselSaid = true;
                 }
                 else
                 if (isPatient == "nie" && pesel.Length != 11)
                 {
-                    try { pesel += e.Result.Semantics["number"].Value.ToString(); }
+                    try {
+                        pesel += e.Result.Semantics["number"].Value.ToString();
+                        pesel_cells[pesel.Length - 1].Content = pesel.Last();
+
+                        pesel_cells[pesel.Length - 1].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+                        if (pesel.Length < 11)
+                        {
+                            pesel_cells[pesel.Length].Background = (SolidColorBrush)new BrushConverter().ConvertFromString("LightBlue");
+                        }
+                    }
                     catch (KeyNotFoundException) { }
                     if (pesel.Length == 11)
                     {
@@ -151,6 +317,7 @@ namespace RejestracjaDoLekarzaProjekt
                         {
                             ss.SpeakAsync("Zostałeś poprawnie zarejestrowany w naszej przychodni. " +
                             "Teraz możesz u-mówić się na wizytę. Podaj do jakiej specjalności lekarza chcesz się u-mówić");
+                            this.complete_phase_1();
                         } else
                         {
                             pesel = "";
@@ -163,6 +330,7 @@ namespace RejestracjaDoLekarzaProjekt
                     {
                         pesel = "";
                         isPeselCorrect = "";
+                        this.reset_pesel_labels();
                         ss.SpeakAsync("Złóż ponownie deklaracje podaj swój numer pe-sel, podawaj kolejne cyfry pojedynczo");
                     }
 
@@ -173,7 +341,11 @@ namespace RejestracjaDoLekarzaProjekt
                     if (specjalization == null || doctor == null)
                     {
                         string specString = "";
-                        try { specString = e.Result.Semantics["specjalization"].Value.ToString(); }
+                        try { 
+                            specString = e.Result.Semantics["specjalization"].Value.ToString();
+                            this.mark_specialization(specString);
+                            this.complete_phase_2();
+                        }
                         catch (KeyNotFoundException) { }
 
                         string doctorSurname = "";
@@ -208,6 +380,12 @@ namespace RejestracjaDoLekarzaProjekt
                         {
                             doctor = repo.GetDoctorByName(doctorName, doctorSurname);
                             specjalization = repo.GetSpecjalization("Internista");
+
+                            /*=================================================
+                             TODO: dodać funkcję, która znajdzie specjalizację podanego lekarza*/
+                            this.mark_specialization("Internista");
+                            /*=================================================*/
+                            this.complete_phase_2();
                             if (doctor != null)
                             {
                                 freeVisitsOfDoctor = repo.GetFreeVisitsForDoctor(doctor.Doctors.First().Id);
@@ -217,6 +395,7 @@ namespace RejestracjaDoLekarzaProjekt
                                     doctor = null;
                                     freeVisitsOfDoctor = null;
                                     specjalization = null;
+                                    this.back_to_phase_2();
                                 }
                                 else
                                 {
@@ -230,7 +409,8 @@ namespace RejestracjaDoLekarzaProjekt
                             }
                         }
                         
-                    } else
+                    } 
+                    else
                     {
                         if (doctor == null)
                         {
@@ -252,6 +432,7 @@ namespace RejestracjaDoLekarzaProjekt
                                     doctor = null;
                                     freeVisitsOfDoctor = null;
                                     specjalization = null;
+                                    this.back_to_phase_2();
                                 } else
                                 {
                                     ss.SpeakAsync("Wybrałeś doktora " + doctor.Name + " " + doctor.Surname + " Najbliższy termin tego specjalisty to: "
@@ -262,7 +443,8 @@ namespace RejestracjaDoLekarzaProjekt
                                         "wypisane na ekranie");
                                 }
                             }
-                        } else
+                        } 
+                        else
                         {
                             string decision = "";
                             try { decision = e.Result.Semantics["decision"].Value.ToString(); }

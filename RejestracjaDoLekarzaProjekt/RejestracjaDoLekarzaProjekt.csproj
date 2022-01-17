@@ -240,6 +240,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="assets\images\logo.jpg" />
     <Content Include="Grammars\Grammar.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

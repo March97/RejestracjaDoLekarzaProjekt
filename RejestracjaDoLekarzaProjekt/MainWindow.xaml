@@ -7,11 +7,186 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5.25*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="1.25*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="16">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="4">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <!--Header-->
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" Content="Przychodnia lekarska WAT - system rejestracji głosowej" HorizontalContentAlignment="Left" Margin="10,0,0,0" VerticalContentAlignment="Center" FontSize="22"></Label>
+        <Image Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="3" Source="/assets/images/logo.jpg" Margin="0,3"></Image>
+        <!--End of header-->
+        
+        <!--Phase 1-->
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="14">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+        
+        <Label Name="phase_1_label" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Left" Margin="10,1,1,1" VerticalContentAlignment="Center" FontSize="18">
+            <AccessText TextWrapping="WrapWithOverflow">
+                Etap I - weryfikacja pacjenta
+            </AccessText>
+        </Label>
+
+        <Label Name="existing_account_background" Margin="1,1,0,1" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center">
+            <CheckBox Name="existing_account" VerticalContentAlignment="Center"   Margin="5,0,0,0">
+                <AccessText TextWrapping="WrapWithOverflow">
+                    Konto istniejące
+                </AccessText>
+            </CheckBox>
+        </Label>
+
+        <Label Name="new_account_background" Margin="0,1" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center">
+            <CheckBox Name="new_account" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" Margin="5,0,0,0">
+                <AccessText TextWrapping="WrapWithOverflow">
+                    Nowe konto
+                </AccessText>
+            </CheckBox>
+        </Label>
+
+        <Label Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="18">PESEL:</Label>
+        <!--  PESEL Border -->
+        <Grid Grid.Column="4" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="5" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="6" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="7" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="8" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="9" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="10" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="11" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="12" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="13" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Grid Grid.Column="14" Grid.Row="1">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+        <!-- End of PESEL border -->
+
+        <!--PESEL labels-->
+        <Label Margin="1" Name="pesel_cell_1" Grid.Row="1" Grid.Column="4" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_2" Grid.Row="1" Grid.Column="5" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_3" Grid.Row="1" Grid.Column="6" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_4" Grid.Row="1" Grid.Column="7" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_5" Grid.Row="1" Grid.Column="8" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_6" Grid.Row="1" Grid.Column="9" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_7" Grid.Row="1" Grid.Column="10" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_8" Grid.Row="1" Grid.Column="11" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_9" Grid.Row="1" Grid.Column="12" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_10" Grid.Row="1" Grid.Column="13" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <Label Margin="1" Name="pesel_cell_11" Grid.Row="1" Grid.Column="14" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+        <!--End of PESEL labels-->
+        <!--End of phase 1-->
+        
+        <!--Phase 2-->
+        <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="14" Grid.RowSpan="2">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Label Name="phase_2_label" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" HorizontalContentAlignment="Left" Margin="10,1,1,1" VerticalContentAlignment="Center" FontSize="18">
+            <AccessText TextWrapping="WrapWithOverflow">
+                Etap II - Wybór dziedziny specjalisty
+            </AccessText>
+        </Label>
+
+        <Label Name="dentysta" Margin="1,1,0,1" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Dentysta</Label>
+        <Label Name="internista"  Margin="0,1,0,1" Grid.Row="2" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Internista</Label>
+        <Label Name="ginekolog"  Margin="0,1,0,1" Grid.Row="2" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Ginekolog</Label>
+        <Label Name="chirurg"  Margin="0,1,0,1" Grid.Row="2" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">Chirurg</Label>
+        <Label Name="alergolog"  Margin="0,1,0,1" Grid.Row="2" Grid.Column="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="3">Alergolog</Label>
+        <Label Name="endokrynolog"  Margin="0,1,0,1" Grid.Row="2" Grid.Column="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="3">Endokrynolog</Label>
+        <Label Name="okulista"  Margin="0,1,1,1" Grid.Row="2" Grid.Column="12" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="3">Okulista</Label>
+        <Label Name="dermatolog"  Margin="1,1,0,1" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Dermatolog</Label>
+        <Label Name="laryngolog"  Margin="0,1,0,1" Grid.Row="3" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Laryngolog</Label>
+        <Label Name="ortopeda"  Margin="0,1,0,1" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">Ortopeda</Label>
+        <Label Name="pediatra"  Margin="0,1,0,1" Grid.Row="3" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">Pediatra</Label>
+        <Label Name="psycholog"  Margin="0,1,0,1" Grid.Row="3" Grid.Column="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">Psycholog</Label>
+
+        <!--End of phase 2-->
+        
+        <!--Phase 3-->
+        <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="14">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+
+        <Label Name="phase_3_label" Grid.Row="4" Grid.Column="0" HorizontalContentAlignment="Left" Margin="10,1,1,1" VerticalContentAlignment="Center" FontSize="18">
+            <AccessText TextWrapping="WrapWithOverflow">
+                Etap III - Wybór lekarza
+            </AccessText>
+        </Label>
+
+        <!--End of phase 3-->
+        <!--Phase 4-->
+        <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="14">
+            <Border BorderThickness="1" BorderBrush="Black" />
+        </Grid>
+        <!--End of phase4-->
+
+
+        
+
         <Label Name="lbl1" Grid.Row="0" />
         <Label Name="lbl2" Grid.Row="1" />
+        <!-- <Calendar x:Name="calendar" Grid.Column="2" HorizontalAlignment="Left" Margin="25,10,0,-1" VerticalAlignment="Top" IsTodayHighlighted="False" SelectionMode="MultipleRange" Grid.Row="2">
+        </Calendar> -->
+
+        <Label Name="lblx" Grid.Row="5"></Label>
     </Grid>
 </Window>
