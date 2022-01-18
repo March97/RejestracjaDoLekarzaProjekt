@@ -37,7 +37,7 @@
             <Border BorderThickness="1" BorderBrush="Black" />
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="4">
+        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="5">
             <Border BorderThickness="1" BorderBrush="Black" />
         </Grid>
 
@@ -172,11 +172,97 @@
             </AccessText>
         </Label>
 
+        <Label Name="doc1_background"  Margin="1,1,0,1" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc1_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
+        <Label Name="doc2_background"  Margin="0,1" Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc2_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+        
+        <Label Name="doc3_background"  Margin="0,1" Grid.Row="4" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc3_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
+        <Label Name="doc4_background"  Margin="0,1" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc4_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
+        <Label Name="doc5_background"  Margin="0,1" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc5_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
+        <Label Name="doc6_background"  Margin="0,1" Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc6_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
+        <Label Name="doc7_background"  Margin="0,1" Grid.Row="4" Grid.Column="10" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc7_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
+        <Label Name="doc8_background"  Margin="0,1" Grid.Row="4" Grid.Column="12" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="doc8_label" TextWrapping="WrapWithOverflow" FontSize="10">
+            </AccessText>
+        </Label>
+
         <!--End of phase 3-->
         <!--Phase 4-->
-        <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="14">
+        <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="14">
             <Border BorderThickness="1" BorderBrush="Black" />
         </Grid>
+
+        <Label Name="phase_4_label" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Left" Margin="10,1,1,1" VerticalContentAlignment="Center" FontSize="18">
+            <AccessText TextWrapping="WrapWithOverflow">
+                Etap IV - Wybór lekarza
+            </AccessText>
+        </Label>
+
+        <Label Name="vis1_background"  Margin="1,1,0,1" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis1_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis2_background"  Margin="0,1" Grid.Row="5" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis2_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis3_background"  Margin="0,1" Grid.Row="5" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis3_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis4_background"  Margin="0,1" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis4_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis5_background"  Margin="0,1" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis5_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis6_background"  Margin="0,1" Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis6_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis7_background"  Margin="0,1" Grid.Row="5" Grid.Column="10" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis7_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
+
+        <Label Name="vis8_background"  Margin="0,1" Grid.Row="5" Grid.Column="12" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <AccessText Name="vis8_label" TextWrapping="WrapWithOverflow" FontSize="11">
+            </AccessText>
+        </Label>
         <!--End of phase4-->
 
 
@@ -184,8 +270,6 @@
 
         <Label Name="lbl1" Grid.Row="0" />
         <Label Name="lbl2" Grid.Row="1" />
-        <!-- <Calendar x:Name="calendar" Grid.Column="2" HorizontalAlignment="Left" Margin="25,10,0,-1" VerticalAlignment="Top" IsTodayHighlighted="False" SelectionMode="MultipleRange" Grid.Row="2">
-        </Calendar> -->
 
         <Label Name="lblx" Grid.Row="5"></Label>
     </Grid>

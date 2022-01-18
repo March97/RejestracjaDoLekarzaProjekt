@@ -210,6 +210,8 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <item> Patrycji <tag>out="Patrycja"</tag></item>
       <item> Stanisława <tag>out="Stanisław"</tag></item>
       <item> Konrada <tag>out="Konrad"</tag></item>
+      <item>Wiktorii <tag>out="Wiktoria"</tag></item>
+      <item>Wiktoria <tag>out="Wiktoria"</tag></item>
     </one-of>
   </rule>
   
