@@ -10,6 +10,46 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <tag>out.number=rules.latest();</tag>
     </item>
     <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number1=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number2=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number3=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number4=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number5=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number6=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number7=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number8=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number9=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#number"/>
+      <tag>out.number10=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
       <ruleref uri="#specjalization"/>
       <tag>out.specjalization=rules.latest();</tag>
     </item>
@@ -32,6 +72,10 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
     <item repeat="0-1">
       <ruleref uri="#hour"/>
       <tag>out.hour=rules.latest();</tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#firstVisit"/>
+      <tag>out.firstVisit=rules.latest();</tag>
     </item>
   </rule>
 
@@ -310,6 +354,17 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <item> dziewiętnasta trzydzieści <tag>out="19:30:00"</tag></item>
       <item> w pół do ósmej <tag>out="19:30:00"</tag></item>
       <item> w pół do dwudziestej <tag>out="19:30:00"</tag></item>
+    </one-of>
+  </rule>
+  
+  <rule id="firstVisit">
+    <one-of>
+      <item> na pierwszy termin <tag>out="tak"</tag></item>
+      <item> na pierwszą wizytę <tag>out="tak"</tag></item>
+      <item> na pierwszy wolny termin <tag>out="tak"</tag></item>
+      <item> jak najszybciej <tag>out="tak"</tag></item>
+      <item> najbliższy <tag>out="tak"</tag></item>
+      <item> najbliższa <tag>out="tak"</tag></item>
     </one-of>
   </rule>
 </grammar>

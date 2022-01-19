@@ -16,7 +16,7 @@ namespace RejestracjaDoLekarzaProjekt
             var newPerson = new Person(name, surname, pesel, gender);
             newPerson.Patients.Add(new Patient());
             db.Add(newPerson);
-            db.SaveChanges();          
+            db.SaveChanges();
         }
 
         public Person GetPatient(string pesel)
@@ -43,7 +43,7 @@ namespace RejestracjaDoLekarzaProjekt
         public Person GetDoctorByName(string name, string surname)
         {
             Person person = null;
-            if(name == "")
+            if (name == "")
                 person = db.Persons
                     .Where(x => x.Surname == surname)
                     .Include(x => x.Doctors)

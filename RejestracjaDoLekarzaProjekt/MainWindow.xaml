@@ -45,12 +45,12 @@
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="15" Content="Przychodnia lekarska WAT - system rejestracji głosowej" HorizontalContentAlignment="Left" Margin="10,0,0,0" VerticalContentAlignment="Center" FontSize="22"></Label>
         <Image Grid.Row="0" Grid.Column="10" Grid.ColumnSpan="3" Source="/assets/images/logo.jpg" Margin="0,3"></Image>
         <!--End of header-->
-        
+
         <!--Phase 1-->
         <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="14">
             <Border BorderThickness="1" BorderBrush="Black" />
         </Grid>
-        
+
         <Label Name="phase_1_label" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Left" Margin="10,1,1,1" VerticalContentAlignment="Center" FontSize="18">
             <AccessText TextWrapping="WrapWithOverflow">
                 Etap I - weryfikacja pacjenta
@@ -134,7 +134,7 @@
         <Label Margin="1" Name="pesel_cell_11" Grid.Row="1" Grid.Column="14" FontSize="44" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
         <!--End of PESEL labels-->
         <!--End of phase 1-->
-        
+
         <!--Phase 2-->
         <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="14" Grid.RowSpan="2">
             <Border BorderThickness="1" BorderBrush="Black" />
@@ -160,7 +160,7 @@
         <Label Name="psycholog"  Margin="0,1,0,1" Grid.Row="3" Grid.Column="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2">Psycholog</Label>
 
         <!--End of phase 2-->
-        
+
         <!--Phase 3-->
         <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="14">
             <Border BorderThickness="1" BorderBrush="Black" />
@@ -181,7 +181,7 @@
             <AccessText Name="doc2_label" TextWrapping="WrapWithOverflow" FontSize="10">
             </AccessText>
         </Label>
-        
+
         <Label Name="doc3_background"  Margin="0,1" Grid.Row="4" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <AccessText Name="doc3_label" TextWrapping="WrapWithOverflow" FontSize="10">
             </AccessText>
@@ -266,7 +266,7 @@
         <!--End of phase4-->
 
 
-        
+
 
         <Label Name="lbl1" Grid.Row="0" />
         <Label Name="lbl2" Grid.Row="1" />
