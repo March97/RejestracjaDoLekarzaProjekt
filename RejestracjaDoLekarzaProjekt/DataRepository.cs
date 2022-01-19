@@ -16,7 +16,7 @@ namespace RejestracjaDoLekarzaProjekt
             var newPerson = new Person(name, surname, pesel, gender);
             newPerson.Patients.Add(new Patient());
             db.Add(newPerson);
-            db.SaveChanges();          
+            db.SaveChanges();
         }
 
         public Person GetPatient(string pesel)
@@ -42,17 +42,22 @@ namespace RejestracjaDoLekarzaProjekt
 
         public Person GetDoctorByName(string name, string surname)
         {
-            if(name == "")
-                return db.Persons
+            Person person = null;
+            if (name == "")
+                person = db.Persons
                     .Where(x => x.Surname == surname)
                     .Include(x => x.Doctors)
                     .FirstOrDefault();
             else
-                return db.Persons
+                person = db.Persons
                     .Where(x => x.Surname == surname)
                     .Where(x => x.Name == name)
                     .Include(x => x.Doctors)
                     .FirstOrDefault();
+
+
+            person.Doctors.FirstOrDefault().Specjalization = db.Specjalizations.Where(x => x.Id == person.Doctors.FirstOrDefault().SpecjalizationId).FirstOrDefault();
+            return person;
         }
 
         public List<Visit> GetFreeVisitsForDoctor(int doctorId)
