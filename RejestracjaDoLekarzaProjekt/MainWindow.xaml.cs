@@ -453,7 +453,6 @@ namespace RejestracjaDoLekarzaProjekt
 
         private void Sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            lbl1.Content = "";
             float confidence = e.Result.Confidence;
             Console.WriteLine(e.Result.Text + "        Pewność: " + confidence);
             if (confidence <= 0.3)

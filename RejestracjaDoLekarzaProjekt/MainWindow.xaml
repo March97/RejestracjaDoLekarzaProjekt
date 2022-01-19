@@ -220,7 +220,7 @@
 
         <Label Name="phase_4_label" Grid.Row="5" Grid.Column="0" HorizontalContentAlignment="Left" Margin="10,1,1,1" VerticalContentAlignment="Center" FontSize="18">
             <AccessText TextWrapping="WrapWithOverflow">
-                Etap IV - Wybór lekarza
+                Etap IV - Wybór terminu
             </AccessText>
         </Label>
 
@@ -264,12 +264,6 @@
             </AccessText>
         </Label>
         <!--End of phase4-->
-
-
-
-
-        <Label Name="lbl1" Grid.Row="0" />
-        <Label Name="lbl2" Grid.Row="1" />
 
         <Label Name="lblx" Grid.Row="5"></Label>
     </Grid>
