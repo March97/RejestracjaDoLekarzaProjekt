@@ -73,6 +73,10 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <ruleref uri="#hour"/>
       <tag>out.hour=rules.latest();</tag>
     </item>
+    <item repeat="0-1">
+      <ruleref uri="#firstVisit"/>
+      <tag>out.firstVisit=rules.latest();</tag>
+    </item>
   </rule>
 
   <rule id="number">
@@ -350,6 +354,17 @@ xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0">
       <item> dziewiętnasta trzydzieści <tag>out="19:30:00"</tag></item>
       <item> w pół do ósmej <tag>out="19:30:00"</tag></item>
       <item> w pół do dwudziestej <tag>out="19:30:00"</tag></item>
+    </one-of>
+  </rule>
+  
+  <rule id="firstVisit">
+    <one-of>
+      <item> na pierwszy termin <tag>out="tak"</tag></item>
+      <item> na pierwszą wizytę <tag>out="tak"</tag></item>
+      <item> na pierwszy wolny termin <tag>out="tak"</tag></item>
+      <item> jak najszybciej <tag>out="tak"</tag></item>
+      <item> najbliższy <tag>out="tak"</tag></item>
+      <item> najbliższa <tag>out="tak"</tag></item>
     </one-of>
   </rule>
 </grammar>

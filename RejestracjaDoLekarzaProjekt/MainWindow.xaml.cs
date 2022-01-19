@@ -34,7 +34,6 @@ namespace RejestracjaDoLekarzaProjekt
         string day = "";
         string month = "";
         string hour = "";
-        string minutes = "";
         Person person = null;
         Specjalization specjalization = null;
         List<Doctor> doctors = null;
@@ -635,6 +634,10 @@ namespace RejestracjaDoLekarzaProjekt
                         try { doctorName = e.Result.Semantics["doctorName"].Value.ToString(); }
                         catch (KeyNotFoundException) { }
 
+                        string firstVisit = "";
+                        try { firstVisit = e.Result.Semantics["firstVisit"].Value.ToString(); }
+                        catch (KeyNotFoundException) { }
+
                         if (specString != "")
                         {
                             specjalization = repo.GetSpecjalization(specString);
@@ -671,6 +674,17 @@ namespace RejestracjaDoLekarzaProjekt
                             if (doctor != null)
                             {
                                 freeVisitsOfDoctor = repo.GetFreeVisitsForDoctor(doctor.Doctors.First().Id);
+                                if (firstVisit == "tak" && freeVisitsOfDoctor != null && freeVisitsOfDoctor.Count > 0)
+                                {
+                                    complete_phase_3();
+                                    mark_doctor(doctor);
+                                    load_visits(freeVisitsOfDoctor);
+                                    repo.BookVisit(freeVisitsOfDoctor.First().Id, person.Patients.First().Id);
+                                    this.complete_phase_4();
+                                    this.mark_visit(freeVisitsOfDoctor.First());
+                                    ss.Speak("Zapisałam wizytę na " + freeVisitsOfDoctor.First().Date.Day + " " + freeVisitsOfDoctor.First().Date.Month + " "
+                                            + this.get_visit_date_string(freeVisitsOfDoctor.First().Date) + " zdrówka wariacie!");
+                                } else
                                 if (freeVisitsOfDoctor == null || freeVisitsOfDoctor.Count == 0)
                                 {
                                     ss.SpeakAsync("Doktor " + doctor.Name + " " + doctor.Surname + " nie ma już wolnych terminów. Wybierz innego lekarza");
@@ -686,14 +700,13 @@ namespace RejestracjaDoLekarzaProjekt
                                     load_visits(freeVisitsOfDoctor);
                                     ss.SpeakAsync("Wybrałeś doktora " + doctor.Name + " " + doctor.Surname + " Najbliższy termin tego specjalisty to: "
                                         + freeVisitsOfDoctor.First().Date.Day + " " + freeVisitsOfDoctor.First().Date.Month + " "
-                                        + freeVisitsOfDoctor.First().Date.Hour + ":" + freeVisitsOfDoctor.First().Date.Minute
+                                        + this.get_visit_date_string(freeVisitsOfDoctor.First().Date)
                                         + " Jeśli chcesz potwierdzić ten termin powiedz tak. Jeśli chcesz " +
                                         "potwierdzić inny termin powiedz datę i godzinę wizyty Inne terminy zostały" +
                                         "wypisane na ekranie");
                                 }
                             }
                         }
-
                     }
                     else
                     {
@@ -725,8 +738,8 @@ namespace RejestracjaDoLekarzaProjekt
                                     mark_doctor(doctor);
                                     load_visits(freeVisitsOfDoctor);
                                     ss.SpeakAsync("Wybrałeś doktora " + doctor.Name + " " + doctor.Surname + " Najbliższy termin tego specjalisty to: "
-                                        + freeVisitsOfDoctor.First().Date.Day + " " + freeVisitsOfDoctor.First().Date.Month + " "
-                                        + freeVisitsOfDoctor.First().Date.Hour + ":" + freeVisitsOfDoctor.First().Date.Minute
+                                        + freeVisitsOfDoctor.First().Date.Day + " " + freeVisitsOfDoctor.First().Date.Month + " " +
+                                         this.get_visit_date_string(freeVisitsOfDoctor.First().Date)
                                         + " Jeśli chcesz potwierdzić ten termin powiedz tak. Jeśli chcesz " +
                                         "potwierdzić inny termin powiedz datę i godzinę wizyty Inne terminy zostały" +
                                         "wypisane na ekranie");
@@ -780,13 +793,21 @@ namespace RejestracjaDoLekarzaProjekt
                                 if (day != "" && month != "" && hour != "")
                                 {
                                     var date = day + "." + month + ".2022 " + hour;
-                                    var visit = freeVisitsOfDoctor.Where(x => x.Date.ToString() == date).First();
-                                    repo.BookVisit(visit.Id, person.Patients.First().Id);
-                                    this.complete_phase_4();
-                                    this.mark_visit(visit);
-                                    ss.SpeakAsync("Zapisałam wizytę na " + visit.Date.Day + " " + visit.Date.Month + " "
-                                            + this.get_visit_date_string(visit.Date) + " zdrówka wariacie!");
-
+                                    try
+                                    {
+                                        var visit = freeVisitsOfDoctor.Where(x => x.Date.ToString() == date).First();
+                                        repo.BookVisit(visit.Id, person.Patients.First().Id);
+                                        this.complete_phase_4();
+                                        this.mark_visit(visit);
+                                        ss.SpeakAsync("Zapisałam wizytę na " + visit.Date.Day + " " + visit.Date.Month + " "
+                                                + this.get_visit_date_string(visit.Date) + " zdrówka wariacie!");
+                                    } catch (Exception ex)
+                                    {
+                                        ss.SpeakAsync("Brak takiej wolnej wizyty");
+                                        day = "";
+                                        month = "";
+                                        hour = "";
+                                    }
                                 }
                             }
 
